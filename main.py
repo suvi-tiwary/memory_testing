@@ -10,6 +10,6 @@ memory.record_turn("My goal is to get line 3 OEE above 85% by December 31.",
 memory.record_turn("To reset the safety relay, switch off the main breaker, then press reset for 5 seconds, "
                    "then switch the breaker back on.", "Thanks, saved.", user_id="asha", session_id="mon-shift")
 
-# Before each answer, ask Kioko what the agent should know.
+# Before each answer, ask Kioko what the agent should know. 
 ctx = memory.recall("what is my name ", user_id="asha", session_id="tue-shift")
-print(ctx.text)
+print(ctx.text) 
