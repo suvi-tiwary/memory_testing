@@ -1,0 +1,69 @@
+site_name: rag-titan
+site_description: A Swiss Army knife for RAG, simple and beginner friendly.
+site_url: https://aion7891.github.io/rag-titan
+repo_url: https://github.com/aion7891/rag-titan
+repo_name: aion7891/rag-titan
+
+theme:
+  name: material
+  logo: assets/images/logo.svg
+  favicon: assets/images/logo.svg
+  features:
+    - navigation.sections
+    - content.code.copy
+  palette:
+    - scheme: default
+      toggle: { icon: material/weather-night, name: Dark mode }
+    - scheme: slate
+      toggle: { icon: material/weather-sunny, name: Light mode }
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            docstring_options:
+              warn_missing_types: false
+            show_source: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - tables
+
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - RAG types: rag-types.md
+  - Building blocks: building-blocks.md
+  - Chunking methods: chunking.md
+  - Chunk playground: playground.md
+  - Configuration: configuration.md
+  - Command line: cli.md
+  - Agents: agents.md
+  - Extending rag-titan: extending.md
+  - API reference:
+      - RAGTitan and factory: api/core.md
+      - RAG types: api/rag-types.md
+      - Building blocks: api/building-blocks.md
+  - Roadmap: roadmap.md
+
+hooks:
+  - hooks/cache_bust.py   # adds ?v=<version> to our CSS/JS so browsers get new copies
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+# chunking page: formulas (pymdownx.arithmatex + MathJax) and the chunk playground
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - assets/javascripts/chunk-core.js
+  - assets/javascripts/chunk-playground.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
